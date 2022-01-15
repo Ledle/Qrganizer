@@ -9,12 +9,26 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    event.cpp \
+    eventgroup.cpp \
+    group.cpp \
     main.cpp \
+    note.cpp \
+    notegroup.cpp \
     notes_window.cpp \
+    task.cpp \
+    taskgroup.cpp \
     tasks_window.cpp
 
 HEADERS += \
+    event.h \
+    eventgroup.h \
+    group.h \
+    note.h \
+    notegroup.h \
     notes_window.h \
+    task.h \
+    taskgroup.h \
     tasks_window.h
 
 FORMS += \
