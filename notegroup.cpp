@@ -6,7 +6,7 @@ NoteGroup::NoteGroup() :Group()
 {
 	groups->push_back(this);
 }
-NoteGroup::NoteGroup(string name):Group(name) {
+NoteGroup::NoteGroup(QString name):Group(name) {
 	groups->push_back(this);
 }
 list<Note*> NoteGroup::Notes() {

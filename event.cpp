@@ -6,20 +6,20 @@ Event::Event()
     name = "";
     description = "";
 }
-Event::Event(string name){
+Event::Event(QString name){
     this->name = name;
     description = "";
 }
-string Event::getName(){
+QString Event::getName(){
     return name;
 }
-void Event::setName(string name){
+void Event::setName(QString name){
     this->name = name;
 }
-string Event::getDescription(){
+QString Event::getDescription(){
     return description;
 }
-void Event::setDescription(string description){
+void Event::setDescription(QString description){
     this->description = description;
 }
 Group* Event::getGroup(){

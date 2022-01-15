@@ -7,7 +7,7 @@ EventGroup::EventGroup():Group()
 {
 	groups->push_back(this);
 }
-EventGroup::EventGroup(string name):Group(name){
+EventGroup::EventGroup(QString name):Group(name){
 	groups->push_back(this);
 }
 list<EventGroup*> EventGroup::Groups(){

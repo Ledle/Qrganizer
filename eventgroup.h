@@ -9,7 +9,7 @@ private:
     static list<EventGroup*>* groups;
 public:
     EventGroup();
-    EventGroup(string name);
+    EventGroup(QString name);
     static list<EventGroup*> Groups();
     static void Save();
     static void Load();

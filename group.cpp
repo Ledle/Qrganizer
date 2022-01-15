@@ -7,7 +7,7 @@ Group::Group()
     name = "";
     events = new list<Event*>();
 }
-Group::Group(string name) {
+Group::Group(QString name) {
     this->name = name;
     events = new list<Event*>();
 }
@@ -42,7 +42,7 @@ void Group::ShowEvents(QListWidget* list){
     evs->empty();
     if (!(events->empty())){
     for (Event* e : *events){
-        list->addItem(QString::fromStdString(e->getName()));
+        list->addItem(e->getName());
         list->item(n++)->setData(1,n);
     }
     }

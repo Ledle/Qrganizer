@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include "taskgroup.h"
+#include "task.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class Tasks_Window; }
 QT_END_NAMESPACE
@@ -14,7 +16,10 @@ class Tasks_Window : public QMainWindow
 public:
     Tasks_Window(QWidget *parent = nullptr);
     ~Tasks_Window();
-
+private:
+    TaskGroup* selectedGroup = NULL;
+    Task* selectedTask=NULL;
+    void task_show(Task* tsk);
 private slots:
     void on_AddGroup_Button_clicked();
 
