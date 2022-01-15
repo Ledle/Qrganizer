@@ -10,7 +10,7 @@ private:
     bool complete;
 public:
     Task();
-    Task(string name);
+    Task(QString name);
     bool Completed();
     void Complete();
     void Uncomplete();

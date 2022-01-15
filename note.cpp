@@ -1,13 +1,13 @@
 #include "note.h"
 
 Note::Note(){}
-Note::Note(string text){
+Note::Note(QString text){
 	this->text = text;
 }
-string Note::getText(){
+QString Note::getText(){
 	return text;
 }
-void Note::setText(string text){
+void Note::setText(QString text){
 	this->text = text;
 }
 NoteGroup* Note::getGroup(){

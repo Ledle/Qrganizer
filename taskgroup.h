@@ -9,7 +9,7 @@ private:
     static list<TaskGroup*>* groups;
 public:
     TaskGroup();
-    TaskGroup(string name);
+    TaskGroup(QString name);
     static void Save();
     static void Load();
     static list<TaskGroup*> Groups();

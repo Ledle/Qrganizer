@@ -10,7 +10,7 @@ private:
     list<Note*>* notes;
 public:
     NoteGroup();
-    NoteGroup(string name);
+    NoteGroup(QString name);
     list<Note*> Notes();
     static list<NoteGroup*> Groups();
     void Add(Note* note);

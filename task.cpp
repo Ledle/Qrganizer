@@ -4,7 +4,7 @@ Task::Task():Event()
 {
 	complete = false;
 }
-Task::Task(string name):Event(name) {
+Task::Task(QString name):Event(name) {
 	complete = false;
 }
 bool Task::Completed() {

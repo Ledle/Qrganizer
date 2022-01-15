@@ -9,11 +9,11 @@ class Event;
 class Group
 {
 protected:
-    string name;
+    QString name;
     list<Event*>* events;
 public:
     Group();
-    Group(string name);
+    Group(QString name);
     void Add(Event* e);
     void Remove(Event* e);
     list<Event*>* Events();

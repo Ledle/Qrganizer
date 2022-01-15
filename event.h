@@ -3,6 +3,7 @@
 #include <iostream>
 #include <list>
 #include <QDate>
+#include <QString>
 
 using namespace std;
 class Group;
@@ -10,16 +11,16 @@ class Event
 {
 protected:
     Group* group = NULL;
-    string name;
-    string description;
+    QString name;
+    QString description;
     QDate date;
 public:
     Event();
-    Event(string name);
-    string getName();
-    void setName(string name);
-    string getDescription();
-    void setDescription(string description);
+    Event(QString name);
+    QString getName();
+    void setName(QString name);
+    QString getDescription();
+    void setDescription(QString description);
     Group* getGroup();
     void setGroup(Group* group);
     void setDate(QDate date);
