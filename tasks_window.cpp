@@ -78,7 +78,9 @@ void Tasks_Window::on_CompleteDate1_Button_clicked()
 
 void Tasks_Window::on_Delete_Button_clicked()
 {
-
+    Group* grp = selectedTask->getGroup();
+    grp->Remove(selectedTask);
+    grp->ShowEvents(ui->Tasks_listWidget);
 }
 
 
@@ -93,7 +95,10 @@ void Tasks_Window::on_TaskName_lineEdit_textChanged(const QString &arg1)
 
 void Tasks_Window::on_TaskNotes_textEdit_textChanged()
 {
-
+    if (ui->TaskNotes_textEdit->toPlainText() != selectedTask->getDescription()) {
+        selectedTask->setDescription(ui->TaskNotes_textEdit->toPlainText());
+        selectedGroup->ShowEvents(ui->Tasks_listWidget);
+    }
 }
 
 
@@ -101,4 +106,5 @@ void Tasks_Window::task_show(Task* tsk) {
     selectedTask = tsk;
     ui->TaskName_lineEdit->setText(tsk->getName());
     ui->TaskNotes_textEdit->setText(tsk->getDescription());
+    ui->Complete_Box->setChecked(tsk->Completed());
 }
