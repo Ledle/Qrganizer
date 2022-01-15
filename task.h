@@ -14,6 +14,7 @@ public:
     bool Completed();
     void Complete();
     void Uncomplete();
+    string toString();
 };
 
 #endif // TASK_H

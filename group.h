@@ -3,6 +3,7 @@
 #include <list>
 #include <iostream>
 #include <QListWidget>
+#include <QList>
 
 using namespace std;
 class Event;
@@ -10,13 +11,13 @@ class Group
 {
 protected:
     QString name;
-    list<Event*>* events;
+    QList<Event*>* events;
 public:
     Group();
     Group(QString name);
     void Add(Event* e);
     void Remove(Event* e);
-    list<Event*>* Events();
+    QList<Event*>* Events();
     void ShowEvents(QListWidget* list);
     Event* getEvent(int n);
 };

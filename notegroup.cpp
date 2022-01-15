@@ -1,7 +1,7 @@
 #include "notegroup.h"
 #include "note.h"
 
-list<NoteGroup*>* NoteGroup::groups = new list<NoteGroup*>();
+QList<NoteGroup*>* NoteGroup::groups = new QList<NoteGroup*>();
 NoteGroup::NoteGroup() :Group()
 {
 	groups->push_back(this);
@@ -9,20 +9,14 @@ NoteGroup::NoteGroup() :Group()
 NoteGroup::NoteGroup(QString name):Group(name) {
 	groups->push_back(this);
 }
-list<Note*> NoteGroup::Notes() {
+QList<Note*> NoteGroup::Notes() {
 	return *notes;
 }
-list<NoteGroup*> NoteGroup::Groups() {
+QList<NoteGroup*> NoteGroup::Groups() {
 	return *groups;
 }
 void NoteGroup::Add(Note* note) {
-    bool contains = false;
-    for (Note* nt : *(this->notes)) {
-        if (note == nt) {
-            contains = true;
-        }
-    }
-    if (!contains)
+    if (!(notes->contains(note)))
     {
         notes->push_back(note);
         note->setGroup(this);

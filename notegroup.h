@@ -6,13 +6,13 @@ class Note;
 class NoteGroup :public Group
 {
 private:
-    static list<NoteGroup*>* groups;
-    list<Note*>* notes;
+    static QList<NoteGroup*>* groups;
+    QList<Note*>* notes;
 public:
     NoteGroup();
     NoteGroup(QString name);
-    list<Note*> Notes();
-    static list<NoteGroup*> Groups();
+    QList<Note*> Notes();
+    static QList<NoteGroup*> Groups();
     void Add(Note* note);
     void Remove(Note* note);
     static void Save();

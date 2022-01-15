@@ -1,5 +1,4 @@
 #include "task.h"
-
 Task::Task():Event()
 {
 	complete = false;

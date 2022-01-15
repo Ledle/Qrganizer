@@ -10,6 +10,8 @@ Tasks_Window::Tasks_Window(QWidget *parent)
     TaskGroup* grp = new TaskGroup("Hello");
     grp->Add(new Task("World"));
     TaskGroup::Show(ui->Groups_listWidget);
+    ui->Task_groupBox->hide();
+    ui->Add_groupBox->hide();
 }
 
 Tasks_Window::~Tasks_Window()
@@ -31,6 +33,7 @@ void Tasks_Window::on_Groups_listWidget_itemClicked(QListWidgetItem *item)
     TaskGroup* grp = TaskGroup::getGroup(n-1);
     grp->ShowEvents(ui->Tasks_listWidget);
     selectedGroup = grp;
+    ui->Add_groupBox->show();
 }
 
 void Tasks_Window::on_Tasks_listWidget_itemClicked(QListWidgetItem* item)
@@ -38,6 +41,12 @@ void Tasks_Window::on_Tasks_listWidget_itemClicked(QListWidgetItem* item)
     int n = item->data(1).toInt();
     Task* tsk = (Task*)(selectedGroup->getEvent(n - 1));
     task_show(tsk);
+    if (ui->Task_groupBox->isHidden()){
+        ui->Task_groupBox->show();
+    }
+    else {
+        ui->Task_groupBox->hide();
+    }
 }
 
 

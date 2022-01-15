@@ -1,6 +1,6 @@
 #include "taskgroup.h"
 
-list<TaskGroup*>* TaskGroup::groups = new list<TaskGroup*>();
+QList<TaskGroup*>* TaskGroup::groups = new QList<TaskGroup*>();
 TaskGroup::TaskGroup():Group()
 {
 	groups->push_back(this);
@@ -12,7 +12,7 @@ void TaskGroup::Save() {
 }
 void TaskGroup::Load() {
 }
-list<TaskGroup*> TaskGroup::Groups() {
+QList<TaskGroup*> TaskGroup::Groups() {
 	return *groups;
 }
 void TaskGroup::Show(QListWidget* list){
@@ -24,8 +24,5 @@ void TaskGroup::Show(QListWidget* list){
     }
 }
 TaskGroup* TaskGroup::getGroup(int n){
-    for (TaskGroup* g : *groups){
-        if (n<=0){return g;}
-        n--;
-    }
+    return groups->at(n);
 }

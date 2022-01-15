@@ -6,15 +6,14 @@
 class TaskGroup:public Group
 {
 private:
-    static list<TaskGroup*>* groups;
+    static QList<TaskGroup*>* groups;
 public:
     TaskGroup();
     TaskGroup(QString name);
     static void Save();
     static void Load();
-    static list<TaskGroup*> Groups();
+    static QList<TaskGroup*> Groups();
     static void Show(QListWidget* list);
     static TaskGroup* getGroup(int n);
 };
-
 #endif // TASKGROUP_H

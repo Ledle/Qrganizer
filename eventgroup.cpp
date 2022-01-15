@@ -1,7 +1,7 @@
 #include "eventgroup.h"
 #include "event.h"
 
-list<EventGroup*>* EventGroup::groups = new list<EventGroup*>();
+QList<EventGroup*>* EventGroup::groups = new QList<EventGroup*>();
 
 EventGroup::EventGroup():Group()
 {
@@ -10,11 +10,11 @@ EventGroup::EventGroup():Group()
 EventGroup::EventGroup(QString name):Group(name){
 	groups->push_back(this);
 }
-list<EventGroup*> EventGroup::Groups(){
+QList<EventGroup*> EventGroup::Groups(){
 	return *groups;
 }
-list<Event*> EventGroup::getEvents(QDate date){
-    list<Event*> res = list<Event*>();
+QList<Event*> EventGroup::getEvents(QDate date){
+    QList<Event*> res = QList<Event*>();
     for (Event* e : *(this->events)) {
         if (e->getDate().year() == date.year() && e->getDate().month() == date.month() && e->getDate().day() == date.day()){
             res.push_back(e);

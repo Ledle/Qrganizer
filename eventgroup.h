@@ -6,14 +6,14 @@
 class EventGroup:public Group
 {
 private:
-    static list<EventGroup*>* groups;
+    static QList<EventGroup*>* groups;
 public:
     EventGroup();
     EventGroup(QString name);
-    static list<EventGroup*> Groups();
+    static QList<EventGroup*> Groups();
     static void Save();
     static void Load();
-    list<Event*> getEvents(QDate date);
+    QList<Event*> getEvents(QDate date);
 };
 
 #endif // EVENTGROUP_H

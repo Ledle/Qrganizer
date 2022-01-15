@@ -5,20 +5,14 @@
 Group::Group()
 {
     name = "";
-    events = new list<Event*>();
+    events = new QList<Event*>();
 }
 Group::Group(QString name) {
     this->name = name;
-    events = new list<Event*>();
+    events = new QList<Event*>();
 }
 void Group::Add(Event* e) {
-    bool contains = false;
-    for (Event* evnt : *(this->events)) {
-        if (e == evnt) {
-            contains = true;
-        }
-    }
-    if (!contains)
+    if (!(events->contains(e)))
     {
         events->push_back(e);
         e->setGroup(this);
@@ -32,14 +26,13 @@ void Group::Remove(Event* e) {
         }
     }
 }
-list<Event*>* Group::Events(){
+QList<Event*>* Group::Events(){
     return events;
 }
 void Group::ShowEvents(QListWidget* list){
     list->clear();
     int n = 0;
-    std::list<Event*>* evs = events;
-    evs->empty();
+    QList<Event*>* evs = events;
     if (!(events->empty())){
     for (Event* e : *events){
         list->addItem(e->getName());
@@ -48,8 +41,5 @@ void Group::ShowEvents(QListWidget* list){
     }
 }
 Event* Group::getEvent(int n){
-    for (Event* e : *events){
-        if (n<=0){return e;}
-        n--;
-    }
+    return events->at(n);
 }
