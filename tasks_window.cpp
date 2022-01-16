@@ -66,30 +66,6 @@ void Tasks_Window::on_AddTask_Button_clicked()
 }
 
 
-void Tasks_Window::on_Delete1_Button_clicked()
-{
-
-}
-
-
-void Tasks_Window::on_Cycle1_Button_clicked()
-{
-
-}
-
-
-void Tasks_Window::on_Remind1_Button_clicked()
-{
-
-}
-
-
-void Tasks_Window::on_CompleteDate1_Button_clicked()
-{
-
-}
-
-
 void Tasks_Window::on_Delete_Button_clicked()
 {
     Group* grp = selectedTask->getGroup();

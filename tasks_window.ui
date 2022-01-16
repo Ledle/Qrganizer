@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>875</width>
+    <width>851</width>
     <height>504</height>
    </rect>
   </property>
@@ -172,11 +172,17 @@
           </widget>
          </item>
          <item>
+          <widget class="QDateEdit" name="Complete_dateEdit"/>
+         </item>
+         <item>
           <widget class="QPushButton" name="Remind_Button">
            <property name="text">
             <string>Напоминание</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="QDateTimeEdit" name="Remind_dateTimeEdit"/>
          </item>
          <item>
           <widget class="QPushButton" name="Cycle_Button">
@@ -221,7 +227,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>875</width>
+     <width>851</width>
      <height>22</height>
     </rect>
    </property>
