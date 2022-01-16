@@ -18,8 +18,8 @@ public:
     explicit notes_window(QWidget *parent = nullptr);
     ~notes_window();
 private:
-    NoteGroup* selectedGroup;
-    Note* selectedNote;
+    NoteGroup* selectedGroup = NULL;
+    Note* selectedNote = NULL;
     void note_show(Note* note);
 private slots:
     void on_AddGroup_Button_clicked();
@@ -35,6 +35,10 @@ private slots:
     void on_Save_Button_clicked();
 
     void on_AddNote_Button_clicked();
+
+    void on_Groups_comboBox_currentIndexChanged(int index);
+
+    void on_DeleteGroup_Button_clicked();
 
 private:
     Ui::notes_window *ui;

@@ -33,14 +33,18 @@ void NoteGroup::Remove(Note* note) {
         }
     }
 }
-void NoteGroup::Show(QListWidget* list) {
+void NoteGroup::Show(QListWidget* list, QComboBox* box) {
     list->blockSignals(true);
     list->clear();
     list->blockSignals(false);
+    box->blockSignals(true);
+    box->clear();
+    box->blockSignals(false);
     int n = 0;
     for (NoteGroup* g : *groups) {
         list->addItem(g->name);
         list->item(n++)->setData(1, n);
+        box->addItem(g->name);
     }
 }
 NoteGroup* NoteGroup::getGroup(int n) {
@@ -60,6 +64,9 @@ void NoteGroup::ShowNotes(QListWidget* list) {
 }
 Note* NoteGroup::getNote(int n) {
     return notes->at(n);
+}
+void NoteGroup::RemoveGroup(NoteGroup* group) {
+    groups->removeAt(groups->indexOf(group));
 }
 void NoteGroup::Save() {}
 void NoteGroup::Load() {}
