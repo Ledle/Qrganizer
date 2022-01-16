@@ -7,6 +7,8 @@ notes_window::notes_window(QWidget* parent) :
 {
     ui->setupUi(this);
     ui->Note_textEdit->setReadOnly(true);
+    NoteGroup::Load();
+    NoteGroup::Show(ui->Groups_listWidget, ui->Groups_comboBox);
 }
 
 notes_window::~notes_window()
@@ -93,7 +95,7 @@ void notes_window::on_Delete_Button_clicked()
 
 void notes_window::on_Save_Button_clicked()
 {
-    //NoteGroup::Save();
+    NoteGroup::Save();
 }
 
 
@@ -124,9 +126,15 @@ void notes_window::on_Groups_comboBox_currentIndexChanged(int index)
 
 void notes_window::on_DeleteGroup_Button_clicked()
 {
-    if (selectedGroup != NULL) {
+    if (selectedGroup != NULL && ui->Groups_listWidget->currentRow() != -1) {
         int i = ui->Groups_listWidget->currentRow();
         NoteGroup::RemoveGroup(NoteGroup::Groups().at(i));
         NoteGroup::Show(ui->Groups_listWidget, ui->Groups_comboBox);
+        if (ui->Groups_listWidget->count() > 0) {
+            ui->Groups_listWidget->setCurrentRow(0);
+        }
+        else {
+            selectedGroup = NULL;
+        }
     }
 }

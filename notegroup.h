@@ -28,6 +28,8 @@ public:
     void ShowNotes(QListWidget* list);
     Note* getNote(int n);
     static void RemoveGroup(NoteGroup* group);
+    friend QDataStream& operator>>(QDataStream& d, NoteGroup& g);
+    friend QDataStream& operator<<(QDataStream& d, const NoteGroup& g);
 };
 
 #endif // NOTEGROUP_H

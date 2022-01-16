@@ -1,6 +1,7 @@
 #include "notegroup.h"
 #include "note.h"
-
+#include <QFile>
+#include <QDataStream>
 
 QList<NoteGroup*>* NoteGroup::groups = new QList<NoteGroup*>();
 NoteGroup::NoteGroup() :Group()
@@ -68,5 +69,54 @@ Note* NoteGroup::getNote(int n) {
 void NoteGroup::RemoveGroup(NoteGroup* group) {
     groups->removeAt(groups->indexOf(group));
 }
-void NoteGroup::Save() {}
-void NoteGroup::Load() {}
+void NoteGroup::Save() {
+    QFile file("Note");
+    QDataStream stream(&file);
+    file.open(QIODevice::WriteOnly);
+    int n = groups->size();
+    stream << n;
+    for (int i = 0; i < groups->size(); i++) {
+        stream << *(groups->at(i));
+    }
+    file.close();
+}
+void NoteGroup::Load() {
+    QFile file("Note");
+    QDataStream stream(&file);
+    file.open(QIODevice::ReadOnly);
+    int n;
+    stream >> n;
+    NoteGroup* grp;
+    Note* nt;
+    for (int i = 0; i < n; i++) {
+        grp = new NoteGroup();
+        stream >> *grp;
+        for (Note* t : *(grp->notes)) {
+            nt = (Note*)t;
+            nt->setGroup(grp);
+        }
+    }
+    file.close();
+}
+QDataStream& operator<<(QDataStream& d, const NoteGroup& g) {
+    int n = g.notes->size();
+    d << n;
+    Note* t;
+    for (int i = 0; i < g.notes->size(); i++) {
+        t = (Note*)(g.notes->at(i));
+        d << *t;
+    }
+    d << g.name;
+    return d;
+}
+QDataStream& operator>>(QDataStream& d, NoteGroup& g) {
+    int n;
+    d >> n;
+    Note t;
+    for (int i = 0; i < n; i++) {
+        d >> t;
+        g.notes->push_back(new Note(t));
+    }
+    d >> g.name;
+    return d;
+}

@@ -16,3 +16,11 @@ NoteGroup* Note::getGroup(){
 void Note::setGroup(NoteGroup* group){
 	this->group = group;
 }
+QDataStream& operator<<(QDataStream& d, const Note& u) {
+	d << u.text;
+	return d;
+}
+QDataStream& operator>>(QDataStream& d, Note& u) {
+	d >> u.text;
+	return d;
+}
