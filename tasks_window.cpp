@@ -58,7 +58,7 @@ void Tasks_Window::on_Tasks_listWidget_itemClicked(QListWidgetItem* item)
 void Tasks_Window::on_AddTask_Button_clicked()
 {
     if (ui->NameTask_lineEdit->text() != "") {
-        Task* t = new Task(ui->NameTask_lineEdit->text());//дописать
+        Task* t = new Task(ui->NameTask_lineEdit->text());//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         selectedGroup->Add(t);
         selectedGroup->ShowEvents(ui->Tasks_listWidget);
         ui->NameTask_lineEdit->clear();
@@ -98,3 +98,50 @@ void Tasks_Window::task_show(Task* tsk) {
     ui->TaskNotes_textEdit->setText(tsk->getDescription());
     ui->Complete_Box->setChecked(tsk->Completed());
 }
+
+void Tasks_Window::on_Groups_comboBox_currentIndexChanged(int index)
+{
+
+}
+
+
+void Tasks_Window::on_Cycle_Button_clicked()
+{
+
+}
+
+
+void Tasks_Window::on_Complete_Box_stateChanged(int arg1)
+{
+
+}
+
+
+void Tasks_Window::on_comboBox_currentIndexChanged(int index)
+{
+
+}
+
+
+void Tasks_Window::on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
+{
+
+}
+
+
+void Tasks_Window::on_Complete_dateEdit_dateChanged(const QDate &date)
+{
+
+}
+
+
+void Tasks_Window::on_Remind_Button_clicked()
+{
+
+}
+
+void Tasks_Window::on_CompleteDate_Button_clicked()
+{
+
+}
+

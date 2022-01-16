@@ -160,6 +160,9 @@
         </layout>
        </item>
        <item>
+        <widget class="QComboBox" name="Groups_comboBox"/>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QTextEdit" name="TaskNotes_textEdit"/>
@@ -189,6 +192,30 @@
            <property name="text">
             <string>Повтор</string>
            </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="Cycle_comboBox">
+           <item>
+            <property name="text">
+             <string>Каждый день</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Каждую неделю</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Каждый месяц</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Каждый год</string>
+            </property>
+           </item>
           </widget>
          </item>
         </layout>
@@ -228,7 +255,7 @@
      <x>0</x>
      <y>0</y>
      <width>851</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
