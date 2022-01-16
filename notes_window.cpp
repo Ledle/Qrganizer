@@ -6,6 +6,7 @@ notes_window::notes_window(QWidget *parent) :
     ui(new Ui::notes_window)
 {
     ui->setupUi(this);
+    ui->Note_textEdit->setReadOnly(true);
 }
 
 notes_window::~notes_window()
@@ -19,6 +20,7 @@ void notes_window::on_AddGroup_Button_clicked()
         new NoteGroup(ui->GroupName_lineEdit->text());
     }
     selectedNote = NULL;
+    ui->GroupName_lineEdit->setText("");
     NoteGroup::Show(ui->Groups_listWidget);
     ui->Groups_listWidget->setCurrentRow(ui->Groups_listWidget->count() - 1);
 }
@@ -29,6 +31,12 @@ void notes_window::on_Groups_listWidget_currentRowChanged(int currentRow)
     NoteGroup* grp = NoteGroup::getGroup(currentRow);
     grp->ShowNotes(ui->Notes_listWidget);
     selectedGroup = grp;
+    selectedNote = NULL;
+    ui->Note_textEdit->clear();
+    ui->Note_textEdit->setReadOnly(false);
+    if (ui->Notes_listWidget->count() > 0) {
+        ui->Notes_listWidget->setCurrentRow(0);
+    }
 }
 
 void notes_window::note_show(Note* note) {
@@ -51,6 +59,7 @@ void notes_window::on_Notes_listWidget_currentRowChanged(int currentRow)
         }
     }
     ui->Note_groupBox->show();
+    ui->Note_textEdit->setReadOnly(false);
 }
 
 
@@ -73,11 +82,7 @@ void notes_window::on_Delete_Button_clicked()
 
 void notes_window::on_Save_Button_clicked()
 {
-    QListWidget* list = ui->Notes_listWidget;
     //NoteGroup::Save();
-    for (int i = 0; i < list->count(); i++) {
-        list->removeItemWidget(list->item(i));
-    }
 }
 
 

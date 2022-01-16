@@ -34,9 +34,9 @@ void NoteGroup::Remove(Note* note) {
     }
 }
 void NoteGroup::Show(QListWidget* list) {
-    for (int i = 0; i < list->count(); i++) {
-        list->takeItem(i);
-    }
+    list->blockSignals(true);
+    list->clear();
+    list->blockSignals(false);
     int n = 0;
     for (NoteGroup* g : *groups) {
         list->addItem(g->name);
@@ -47,9 +47,9 @@ NoteGroup* NoteGroup::getGroup(int n) {
     return groups->at(n);
 }
 void NoteGroup::ShowNotes(QListWidget* list) {
-    for (int i = 0; i < list->count(); i++) {
-        list->removeItemWidget(list->item(i));
-    }
+    list->blockSignals(true);
+    list->clear();
+    list->blockSignals(false);
     int n = 0;
     QString st;
     if (!(notes->empty())) {
