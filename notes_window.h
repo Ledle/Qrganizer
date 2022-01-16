@@ -24,8 +24,6 @@ private:
 private slots:
     void on_AddGroup_Button_clicked();
 
-    void on_Groups_listWidget_currentRowChanged(int currentRow);
-
     void on_Notes_listWidget_currentRowChanged(int currentRow);
 
     void on_Note_textEdit_textChanged();
@@ -36,10 +34,13 @@ private slots:
 
     void on_AddNote_Button_clicked();
 
-    void on_Groups_comboBox_currentIndexChanged(int index);
-
     void on_DeleteGroup_Button_clicked();
 
+    void on_Groups_listWidget_itemClicked(QListWidgetItem* item);
+
+    void on_Groups_listWidget_itemSelectionChanged();
+
+    void on_Groups_comboBox_textActivated(const QString& arg1);
 private:
     Ui::notes_window *ui;
 };

@@ -55,11 +55,13 @@ void NoteGroup::ShowNotes(QListWidget* list) {
     list->blockSignals(true);
     list->clear();
     list->blockSignals(false);
-    int n = 0;
-    QString st;
-    if (!(notes->empty())) {
-        for (Note* nt : *notes) {
-            list->addItem(nt->getText());
+    if (this != NULL) {
+        int n = 0;
+        QString st;
+        if (!(notes->empty())) {
+            for (Note* nt : *notes) {
+                list->addItem(nt->getText());
+            }
         }
     }
 }
