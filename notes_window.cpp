@@ -95,3 +95,14 @@ void notes_window::on_AddNote_Button_clicked()
     }
     ui->Notes_listWidget->setCurrentRow(ui->Notes_listWidget->count() - 1);
 }
+void notes_window::on_Groups_comboBox_currentIndexChanged(int index)
+{
+
+}
+
+
+void notes_window::on_DeleteGroup_pushButton_clicked()
+{
+
+}
+
