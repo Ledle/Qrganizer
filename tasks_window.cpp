@@ -60,9 +60,6 @@ void Tasks_Window::on_Tasks_listWidget_itemClicked(QListWidgetItem* item)
 
 void Tasks_Window::on_AddTask_Button_clicked()
 {
-    TaskGroup* g1 = TaskGroup::Groups().at(0);
-    TaskGroup* g2 = TaskGroup::Groups().at(1);
-    QList<TaskGroup*> grps = TaskGroup::Groups();
     if (ui->NameTask_lineEdit->text() != "") {
         Task* t = new Task(ui->NameTask_lineEdit->text());
         selectedGroup->Add(t);

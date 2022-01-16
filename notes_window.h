@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+#include "notegroup.h"
+#include "note.h"
+
 namespace Ui {
 class notes_window;
 }
@@ -14,7 +17,10 @@ class notes_window : public QWidget
 public:
     explicit notes_window(QWidget *parent = nullptr);
     ~notes_window();
-
+private:
+    NoteGroup* selectedGroup;
+    Note* selectedNote;
+    void note_show(Note* note);
 private slots:
     void on_AddGroup_Button_clicked();
 
