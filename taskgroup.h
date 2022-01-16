@@ -2,6 +2,7 @@
 #define TASKGROUP_H
 #include "group.h"
 #include <QListWidget>
+#include <QComboBox>
 
 class TaskGroup:public Group
 {
@@ -13,7 +14,7 @@ public:
     static void Save();
     static void Load();
     static QList<TaskGroup*> Groups();
-    static void Show(QListWidget* list);
+    static void Show(QListWidget* list, QComboBox* box);
     static TaskGroup* getGroup(int n);
     friend QDataStream& operator>>(QDataStream& d, TaskGroup& g);
     friend QDataStream& operator<<(QDataStream& d, const TaskGroup& g);

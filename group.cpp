@@ -43,3 +43,9 @@ void Group::ShowEvents(QListWidget* list){
 Event* Group::getEvent(int n){
     return events->at(n);
 }
+QString Group::getName() {
+    return name;
+}
+void Group::setName(QString name) {
+    this->name = name;
+}

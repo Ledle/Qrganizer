@@ -46,3 +46,15 @@ QDate Event::getDate(){
 void Event::setDate(QDate date){
     this->date = date;
 }
+QDateTime Event::getRemind() {
+    return remind;
+}
+void Event::setRemind(QDateTime date) {
+    remind = date;
+}
+Cycle Event::getCycle() {
+    return cycle;
+}
+void Event::setCycle(Cycle date) {
+    cycle = date;
+}

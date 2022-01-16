@@ -29,21 +29,33 @@ void TaskGroup::Load() {
     stream >> n;
     TaskGroup g;
     groups->pop_back();
+    TaskGroup* grp;
+    Task* tsk;
     for (int i = 0; i < n; i++) {
+        g.events = new QList<Event*>();
         stream >> g;
-        groups->append(new TaskGroup(g));
+        grp = new TaskGroup(g);
+        for (Event* t : *(grp->events)) {
+            tsk = (Task*)t;
+            tsk->setGroup(grp);
+        }
+        groups->append(grp);
     }
     file.close();
 }
 QList<TaskGroup*> TaskGroup::Groups() {
 	return *groups;
 }
-void TaskGroup::Show(QListWidget* list){
+void TaskGroup::Show(QListWidget* list, QComboBox* box){
     list->clear();
     int n = 0;
+    for (int i = 0; i < box->count();i++) {
+        box->removeItem(i);
+    }
     for (TaskGroup* g : *groups){
         list->addItem(g->name);
         list->item(n++)->setData(1,n);
+        box->addItem(g->name);
     }
 }
 TaskGroup* TaskGroup::getGroup(int n){
@@ -68,8 +80,6 @@ QDataStream& operator>>(QDataStream& d, TaskGroup& g) {
     Task* evnt;
     for (int i = 0; i < n; i++) {
         d >> t;
-        evnt = new Task(t);
-        evnt->setGroup(&g);
         g.events->push_back(new Task(t));
     }
     d >> g.name;

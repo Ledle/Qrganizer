@@ -20,6 +20,8 @@ public:
     QList<Event*>* Events();
     void ShowEvents(QListWidget* list);
     Event* getEvent(int n);
+    QString getName();
+    void setName(QString name);
 };
 
 #endif // GROUP_H

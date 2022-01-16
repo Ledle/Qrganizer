@@ -27,14 +27,6 @@ private slots:
 
     void on_AddTask_Button_clicked();
 
-    void on_Delete1_Button_clicked();
-
-    void on_Cycle1_Button_clicked();
-
-    void on_Remind1_Button_clicked();
-
-    void on_CompleteDate1_Button_clicked();
-
     void on_Delete_Button_clicked();
 
     void on_TaskName_lineEdit_textChanged(const QString &arg1);
@@ -50,8 +42,6 @@ private slots:
     void on_Complete_dateEdit_dateChanged(const QDate &date);
 
     void on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
-
-    void on_comboBox_currentIndexChanged(int index);
 
     void on_Complete_Box_stateChanged(int arg1);
 
