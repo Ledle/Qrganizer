@@ -37,8 +37,11 @@
           <height>16777215</height>
          </size>
         </property>
-        <property name="itemAlignment">
-         <set>Qt::AlignCenter</set>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideMiddle</enum>
         </property>
        </widget>
       </item>
@@ -77,11 +80,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QListWidget" name="Tasks_listWidget">
-        <property name="itemAlignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
+       <widget class="QListWidget" name="Tasks_listWidget"/>
       </item>
       <item>
        <widget class="QGroupBox" name="Add_groupBox">

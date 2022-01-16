@@ -15,3 +15,11 @@ void Task::Complete() {
 void Task::Uncomplete() {
 	complete = false;
 }
+QDataStream& operator<<(QDataStream& d, const Task& u) {
+	d << u.name << u.description << u.date << u.complete;
+	return d;
+}
+QDataStream& operator>>(QDataStream& d, Task& u) {
+	d >> u.name >> u.description >> u.date >> u.complete;
+	return d;
+}

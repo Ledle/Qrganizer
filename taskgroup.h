@@ -15,5 +15,7 @@ public:
     static QList<TaskGroup*> Groups();
     static void Show(QListWidget* list);
     static TaskGroup* getGroup(int n);
+    friend QDataStream& operator>>(QDataStream& d, TaskGroup& g);
+    friend QDataStream& operator<<(QDataStream& d, const TaskGroup& g);
 };
 #endif // TASKGROUP_H

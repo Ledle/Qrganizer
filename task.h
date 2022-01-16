@@ -14,7 +14,8 @@ public:
     bool Completed();
     void Complete();
     void Uncomplete();
-    string toString();
+    friend QDataStream& operator<<(QDataStream& d, const Task& u);
+    friend QDataStream& operator>>(QDataStream& d, Task& u);
 };
 
 #endif // TASK_H
