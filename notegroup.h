@@ -2,6 +2,7 @@
 #define NOTEGROUP_H
 #include "group.h"
 #include <QListWidget>
+#include <QComboBox>
 class Note;
 class NoteGroup :public Group
 {
@@ -22,10 +23,11 @@ public:
     void Remove(Note* note);
     static void Save();
     static void Load();
-    static void Show(QListWidget* list);
+    static void Show(QListWidget* list, QComboBox* box);
     static NoteGroup* getGroup(int n);
     void ShowNotes(QListWidget* list);
     Note* getNote(int n);
+    static void RemoveGroup(NoteGroup* group);
 };
 
 #endif // NOTEGROUP_H

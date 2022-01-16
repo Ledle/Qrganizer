@@ -62,7 +62,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="DeleteGroup_pushButton">
+        <widget class="QPushButton" name="DeleteGroup_Button">
          <property name="text">
           <string>Удалить</string>
          </property>
