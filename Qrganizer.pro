@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    calendar_window.cpp \
     event.cpp \
     eventgroup.cpp \
     group.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     tasks_window.cpp
 
 HEADERS += \
+    calendar_window.h \
     event.h \
     eventgroup.h \
     group.h \
@@ -32,6 +34,7 @@ HEADERS += \
     tasks_window.h
 
 FORMS += \
+    calendar_window.ui \
     notes_window.ui \
     tasks_window.ui
 
