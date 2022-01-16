@@ -15,6 +15,21 @@ public:
     explicit notes_window(QWidget *parent = nullptr);
     ~notes_window();
 
+private slots:
+    void on_AddGroup_Button_clicked();
+
+    void on_Groups_listWidget_currentRowChanged(int currentRow);
+
+    void on_Notes_listWidget_currentRowChanged(int currentRow);
+
+    void on_Note_textEdit_textChanged();
+
+    void on_Delete_Button_clicked();
+
+    void on_Save_Button_clicked();
+
+    void on_AddNote_Button_clicked();
+
 private:
     Ui::notes_window *ui;
 };

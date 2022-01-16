@@ -111,16 +111,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="Files_Button">
-            <property name="text">
-             <string>Файлы</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="AddNote_Button">
             <property name="text">
-             <string>Готово</string>
+             <string>Создать</string>
             </property>
            </widget>
           </item>
