@@ -17,6 +17,7 @@ SOURCES += \
     note.cpp \
     notegroup.cpp \
     notes_window.cpp \
+    settings.cpp \
     task.cpp \
     taskgroup.cpp \
     tasks_window.cpp
@@ -29,6 +30,7 @@ HEADERS += \
     note.h \
     notegroup.h \
     notes_window.h \
+    settings.h \
     task.h \
     taskgroup.h \
     tasks_window.h
@@ -36,6 +38,7 @@ HEADERS += \
 FORMS += \
     calendar_window.ui \
     notes_window.ui \
+    settings.ui \
     tasks_window.ui
 
 # Default rules for deployment.
