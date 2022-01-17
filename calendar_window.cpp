@@ -26,10 +26,6 @@ void calendar_window::setSelectedEvent(Event* evnt) {
         ui->EventName_lineEdit->setDisabled(true);
         ui->Description_textEdit->setDisabled(true);
 
-        ui->Events_listWidget->setDisabled(true);
-        ui->Events_listWidget->blockSignals(true);
-        ui->Events_listWidget->clear();
-        ui->Events_listWidget->blockSignals(true);
 
         ui->Delete_Button->setDisabled(true);
         ui->Cycle_comboBox->hide();
@@ -42,7 +38,6 @@ void calendar_window::setSelectedEvent(Event* evnt) {
     else {
         selectedEvent = evnt;
 
-        ui->Events_listWidget->setEnabled(true);
         ui->EventName_lineEdit->setText(evnt->getName());
         ui->Description_textEdit->setDisabled(false);
         ui->Description_textEdit->setPlainText(evnt->getDescription());
@@ -80,6 +75,11 @@ void calendar_window::setSelectedGroup(EventGroup* group) {
     if (group == NULL) {
         selectedGroup = NULL;
 
+        ui->Events_listWidget->setDisabled(true);
+        ui->Events_listWidget->blockSignals(true);
+        ui->Events_listWidget->clear();
+        ui->Events_listWidget->blockSignals(true);
+
         ui->Groups_comboBox->setDisabled(true);
         ui->AddEvent_Button->setDisabled(true);
         ui->DeleteGroup_Button->setDisabled(true);
@@ -88,6 +88,7 @@ void calendar_window::setSelectedGroup(EventGroup* group) {
     else {
         selectedGroup = group;
 
+        ui->Events_listWidget->setDisabled(false);
         ui->Groups_comboBox->setDisabled(false);
         ui->Groups_comboBox->setCurrentIndex(EventGroup::Groups().indexOf(group));
         ui->AddEvent_Button->setDisabled(false);
@@ -114,9 +115,7 @@ void calendar_window::on_calendarWidget_clicked(const QDate& date)
 {
     if (selectedGroup != NULL) {
         event_show(selectedGroup->getEvents(date));
-        if (!(selectedGroup->getEvents(date).isEmpty())) {
-            setSelectedEvent(selectedGroup->getEvents(date).first());
-        }
+        setSelectedEvent(NULL);
     }
 }
 
@@ -125,8 +124,11 @@ void calendar_window::event_show(QList<Event*> evs) {
     for (Event* e : evs) {
         ui->Events_listWidget->addItem(e->getName());
     }
+
     ui->EventName_lineEdit->setText("");
+    ui->Description_textEdit->blockSignals(true);
     ui->Description_textEdit->setPlainText("");
+    ui->Description_textEdit->blockSignals(false);
 }
 
 void calendar_window::on_AddGroup_Button_clicked()
