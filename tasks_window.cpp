@@ -104,7 +104,7 @@ void Tasks_Window::task_show(Task* tsk) {
     int i = TaskGroup::Groups().indexOf(selectedGroup);
     ui->Groups_comboBox->setCurrentIndex(i);
     if (!(tsk->getDate().isNull())) {
-        ui->Complete_dateEdit->setDate(tsk->getDate());
+        ui->Complete_dateEdit->setDate(QDate(tsk->getDate().date()));
         ui->Complete_dateEdit->show();
     }
     else {
@@ -175,7 +175,7 @@ void Tasks_Window::on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateT
 
 void Tasks_Window::on_Complete_dateEdit_dateChanged(const QDate &date)
 {
-    selectedTask->setDate(date);
+    selectedTask->setDate(QDateTime(date,QTime()));
 }
 
 
@@ -187,7 +187,7 @@ void Tasks_Window::on_Remind_Button_clicked()
     }
     else {
         ui->Remind_dateTimeEdit->show();
-        QDateTime remind = QDateTime(selectedTask->getDate(),QTime());
+        QDateTime remind = selectedTask->getDate();
         selectedTask->setRemind(remind);
         ui->Remind_dateTimeEdit->setDateTime(remind);
     }
@@ -197,7 +197,7 @@ void Tasks_Window::on_CompleteDate_Button_clicked()
 {
     if (ui->Complete_dateEdit->isVisible()) {
         ui->Complete_dateEdit->hide();
-        selectedTask->setDate(QDate());
+        selectedTask->setDate(QDateTime());
     }
     else {
         ui->Complete_dateEdit->show();

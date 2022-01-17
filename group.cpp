@@ -30,7 +30,9 @@ QList<Event*>* Group::Events(){
     return events;
 }
 void Group::ShowEvents(QListWidget* list){
+    list->blockSignals(true);
     list->clear();
+    list->blockSignals(false);
     int n = 0;
     QList<Event*>* evs = events;
     if (!(events->empty())){

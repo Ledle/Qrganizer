@@ -104,6 +104,7 @@ void notes_window::on_DeleteGroup_Button_clicked()
             selectedGroup = NULL;
             ui->Notes_listWidget->clear();
             ui->Note_textEdit->clear();
+            
         }
     }
 }

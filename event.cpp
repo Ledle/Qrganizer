@@ -40,10 +40,10 @@ void Event::setGroup(Group* group) {
         this->group = group;
     }
 }
-QDate Event::getDate(){
+QDateTime Event::getDate(){
     return date;
 }
-void Event::setDate(QDate date){
+void Event::setDate(QDateTime date){
     this->date = date;
 }
 QDateTime Event::getRemind() {
@@ -57,4 +57,12 @@ Cycle Event::getCycle() {
 }
 void Event::setCycle(Cycle date) {
     cycle = date;
+}
+QDataStream& operator<<(QDataStream& d, const Event& u) {
+    d << u.name << u.description << u.date << u.cycle << u.remind;
+    return d;
+}
+QDataStream& operator>>(QDataStream& d, Event& u) {
+    d >> u.name >> u.description >> u.date >> u.cycle >> u.remind;
+    return d;
 }

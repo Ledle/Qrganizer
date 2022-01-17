@@ -21,7 +21,7 @@ protected:
     Group* group = NULL;
     QString name;
     QString description;
-    QDate date;
+    QDateTime date;
     QDateTime remind;
     Cycle cycle = Cycle::EMPTY;
 public:
@@ -33,12 +33,14 @@ public:
     void setDescription(QString description);
     Group* getGroup();
     void setGroup(Group* group);
-    void setDate(QDate date);
-    QDate getDate();
+    void setDate(QDateTime date);
+    QDateTime getDate();
     QDateTime getRemind();
     void setRemind(QDateTime date);
     Cycle getCycle();
     void setCycle(Cycle date);
+    friend QDataStream& operator<<(QDataStream& d, const Event& u);
+    friend QDataStream& operator>>(QDataStream& d, Event& u);
 };
 
 #endif // EVENT_H

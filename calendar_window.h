@@ -2,7 +2,7 @@
 #define CALENDAR_WINDOW_H
 
 #include <QWidget>
-
+#include "eventgroup.h"
 namespace Ui {
 class calendar_window;
 }
@@ -14,9 +14,13 @@ class calendar_window : public QWidget
 public:
     explicit calendar_window(QWidget *parent = nullptr);
     ~calendar_window();
-
+private:
+    Event* selectedEvent;
+    EventGroup* selectedGroup;
+    void event_show(QList<Event*> evs);
+    void setSelectedEvent(Event* evnt);
+    void setSelectedGroup(EventGroup* group);
 private slots:
-    void on_calendarWidget_selectionChanged();
 
     void on_AddGroup_Button_clicked();
 
@@ -24,7 +28,7 @@ private slots:
 
     void on_EventName_lineEdit_textEdited(const QString &arg1);
 
-    void on_Events_listWidget_itemClicked(QListWidgetItem *item);
+    void on_calendarWidget_clicked(const QDate& date);
 
     void on_Groups_comboBox_currentIndexChanged(int index);
 
@@ -47,6 +51,7 @@ private slots:
     void on_Save_Button_clicked();
 
     void on_Events_listWidget_itemSelectionChanged();
+    void on_Description_textEdit_textChanged();
 
 private:
     Ui::calendar_window *ui;

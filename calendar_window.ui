@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>810</width>
     <height>500</height>
    </rect>
   </property>
@@ -81,22 +81,7 @@
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <property name="spacing">
-       <number>6</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
@@ -105,48 +90,108 @@
        </layout>
       </item>
       <item>
+       <widget class="QTextEdit" name="Description_textEdit"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>События:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QListWidget" name="Events_listWidget"/>
       </item>
       <item>
-       <widget class="QComboBox" name="Groups_comboBox">
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="Save_Button">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/disk.png</normaloff>icons/disk.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Delete_Button">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/trash.png</normaloff>icons/trash.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="DeleteGroup_Button">
-        <property name="text">
-         <string>Удалить группу</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QPushButton" name="Date_Button">
+          <property name="maximumSize">
+           <size>
+            <width>32</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Дата события</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/calendar.png</normaloff>icons/calendar.png</iconset>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QDateTimeEdit" name="Date_dateTimeEdit"/>
         </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QPushButton" name="Remind_Button">
+          <property name="maximumSize">
+           <size>
+            <width>32</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Напоминание</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/alarm-clock.png</normaloff>icons/alarm-clock.png</iconset>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QDateTimeEdit" name="Remind_dateTimeEdit"/>
         </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QPushButton" name="Cycle_Button">
+          <property name="maximumSize">
+           <size>
+            <width>32</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Повтор</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/time-past.png</normaloff>icons/time-past.png</iconset>
           </property>
          </widget>
         </item>
@@ -177,18 +222,28 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
-         <widget class="QPushButton" name="Save_Button">
-          <property name="text">
-           <string>Сохранить</string>
+         <widget class="QComboBox" name="Groups_comboBox">
+          <property name="editable">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="Delete_Button">
+         <widget class="QPushButton" name="DeleteGroup_Button">
+          <property name="maximumSize">
+           <size>
+            <width>32</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Удалить событие</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/trash.png</normaloff>icons/trash.png</iconset>
           </property>
          </widget>
         </item>

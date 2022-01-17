@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="calendar_window.cpp" />
     <ClCompile Include="note.cpp" />
     <ClCompile Include="notegroup.cpp" />
     <ClCompile Include="notes_window.cpp" />
@@ -92,6 +93,7 @@
     <ClCompile Include="taskgroup.cpp" />
     <ClCompile Include="tasks_window.cpp" />
     <QtRcc Include="Qrganizer.qrc" />
+    <QtUic Include="calendar_window.ui" />
     <QtUic Include="notes_window.ui" />
     <ClCompile Include="event.cpp" />
     <ClCompile Include="eventgroup.cpp" />
@@ -100,6 +102,7 @@
     <QtUic Include="tasks_window.ui" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="calendar_window.h" />
     <ClInclude Include="event.h" />
     <ClInclude Include="eventgroup.h" />
     <ClInclude Include="group.h" />
