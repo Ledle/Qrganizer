@@ -2,6 +2,8 @@
 #include "task.h"
 #include <QFile>
 #include <QDataStream>
+#include "settings.h"
+
 QList<TaskGroup*>* TaskGroup::groups = new QList<TaskGroup*>();
 TaskGroup::TaskGroup():Group()
 {
@@ -11,7 +13,7 @@ TaskGroup::TaskGroup(QString name):Group(name) {
 	groups->push_back(this);
 }
 void TaskGroup::Save() {
-    QFile file("Task");
+    QFile file(Settings::Task);
     QDataStream stream(&file);
     file.open(QIODevice::WriteOnly);
     int n = groups->size();
@@ -22,7 +24,7 @@ void TaskGroup::Save() {
     file.close();
 }
 void TaskGroup::Load() {
-    QFile file("Task");
+    QFile file(Settings::Task);
     QDataStream stream(&file);
     bool f = file.open(QIODevice::ReadOnly);
     int n;
@@ -49,9 +51,9 @@ QList<TaskGroup*> TaskGroup::Groups() {
 void TaskGroup::Show(QListWidget* list, QComboBox* box){
     list->clear();
     int n = 0;
-    for (int i = 0; i < box->count();i++) {
-        box->removeItem(i);
-    }
+    box->blockSignals(true);
+    box->clear();
+    box->blockSignals(false);
     for (TaskGroup* g : *groups){
         list->addItem(g->name);
         list->item(n++)->setData(1,n);
@@ -84,4 +86,15 @@ QDataStream& operator>>(QDataStream& d, TaskGroup& g) {
     }
     d >> g.name;
     return d;
+}
+void TaskGroup::ShowEvents(QListWidget* list) {
+    Group::ShowEvents(list);
+    int n = 0;
+    if (!(events->empty())) {
+        for (Event* e : *events) {
+            if (((Task*)e)->Completed()) {
+                list->item(n++)->setBackground(QBrush(QColor(Qt::GlobalColor::gray)));
+            }
+        }
+    }
 }

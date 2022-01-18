@@ -2,6 +2,7 @@
 #include "note.h"
 #include <QFile>
 #include <QDataStream>
+#include "settings.h"
 
 QList<NoteGroup*>* NoteGroup::groups = new QList<NoteGroup*>();
 NoteGroup::NoteGroup() :Group()
@@ -72,7 +73,7 @@ void NoteGroup::RemoveGroup(NoteGroup* group) {
     groups->removeAt(groups->indexOf(group));
 }
 void NoteGroup::Save() {
-    QFile file("Note");
+    QFile file(Settings::Note);
     QDataStream stream(&file);
     file.open(QIODevice::WriteOnly);
     int n = groups->size();
@@ -83,7 +84,7 @@ void NoteGroup::Save() {
     file.close();
 }
 void NoteGroup::Load() {
-    QFile file("Note");
+    QFile file(Settings::Note);
     QDataStream stream(&file);
     file.open(QIODevice::ReadOnly);
     int n;

@@ -89,6 +89,7 @@
     <ClCompile Include="note.cpp" />
     <ClCompile Include="notegroup.cpp" />
     <ClCompile Include="notes_window.cpp" />
+    <ClCompile Include="settings.cpp" />
     <ClCompile Include="task.cpp" />
     <ClCompile Include="taskgroup.cpp" />
     <ClCompile Include="tasks_window.cpp" />
@@ -99,6 +100,7 @@
     <ClCompile Include="eventgroup.cpp" />
     <ClCompile Include="group.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="settings.ui" />
     <QtUic Include="tasks_window.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +110,7 @@
     <ClInclude Include="group.h" />
     <ClInclude Include="note.h" />
     <ClInclude Include="notegroup.h" />
+    <QtMoc Include="settings.h" />
     <ClInclude Include="task.h" />
     <ClInclude Include="taskgroup.h" />
     <QtMoc Include="tasks_window.h" />

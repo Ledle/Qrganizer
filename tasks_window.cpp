@@ -2,6 +2,7 @@
 #include "ui_tasks_window.h"
 #include "taskgroup.h"
 #include "task.h"
+#include <QCloseEvent>
 
 Tasks_Window::Tasks_Window(QWidget *parent)
     : QMainWindow(parent)
@@ -26,6 +27,7 @@ void Tasks_Window::on_AddGroup_Button_clicked()
     }
     selectedTask = NULL;
     ui->Task_groupBox->hide();
+    ui->GroupName_lineEdit->setText("");
     TaskGroup::Show(ui->Groups_listWidget, ui->Groups_comboBox);
 }
 
@@ -164,6 +166,7 @@ void Tasks_Window::on_Complete_Box_stateChanged(int arg1)
     else {
         selectedTask->Complete();
     }
+    selectedGroup->ShowEvents(ui->Tasks_listWidget);
 }
 
 
@@ -202,5 +205,12 @@ void Tasks_Window::on_CompleteDate_Button_clicked()
     else {
         ui->Complete_dateEdit->show();
         ui->Complete_dateEdit->setDate(QDate::currentDate());
+    }
+}
+void Tasks_Window::closeEvent(QCloseEvent* event)
+{
+    if (this->isVisible()) {
+        event->ignore();
+        this->hide();
     }
 }

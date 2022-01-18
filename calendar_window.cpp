@@ -1,6 +1,7 @@
 #include "calendar_window.h"
 #include "ui_calendar_window.h"
 #include "event.h"
+#include <QCloseEvent>
 calendar_window::calendar_window(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::calendar_window)
@@ -286,5 +287,12 @@ void calendar_window::on_Events_listWidget_itemSelectionChanged()
     Event* evnt = selectedGroup->getEvent(n);
     if (evnt != selectedEvent) {
         setSelectedEvent(evnt);
+    }
+}
+void calendar_window::closeEvent(QCloseEvent* event)
+{
+    if (this->isVisible()) {
+        event->ignore();
+        this->hide();
     }
 }

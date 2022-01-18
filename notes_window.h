@@ -41,6 +41,8 @@ private slots:
     void on_Groups_listWidget_itemSelectionChanged();
 
     void on_Groups_comboBox_textActivated(const QString& arg1);
+protected:
+    void closeEvent(QCloseEvent* event);
 private:
     Ui::notes_window *ui;
 };

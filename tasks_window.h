@@ -48,7 +48,8 @@ private slots:
     void on_Cycle_Button_clicked();
 
     void on_Groups_comboBox_currentIndexChanged(int index);
-
+protected:
+    void closeEvent(QCloseEvent* event);
 private:
     Ui::Tasks_Window *ui;
 };

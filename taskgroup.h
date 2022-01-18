@@ -16,6 +16,7 @@ public:
     static QList<TaskGroup*> Groups();
     static void Show(QListWidget* list, QComboBox* box);
     static TaskGroup* getGroup(int n);
+    void ShowEvents(QListWidget* list);
     friend QDataStream& operator>>(QDataStream& d, TaskGroup& g);
     friend QDataStream& operator<<(QDataStream& d, const TaskGroup& g);
 };

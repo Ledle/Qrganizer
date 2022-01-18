@@ -1,5 +1,6 @@
 #include "notes_window.h"
 #include "ui_notes_window.h"
+#include <QCloseEvent>
 
 notes_window::notes_window(QWidget* parent) :
     QWidget(parent),
@@ -143,5 +144,12 @@ void notes_window::on_Groups_comboBox_textActivated(const QString& arg1)
         ui->Groups_listWidget->setCurrentRow(index);
         grp->ShowNotes(ui->Notes_listWidget);
         note_show(selectedNote);
+    }
+}
+void notes_window::closeEvent(QCloseEvent* event)
+{
+    if (this->isVisible()) {
+        event->ignore();
+        this->hide();
     }
 }

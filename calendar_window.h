@@ -52,7 +52,8 @@ private slots:
 
     void on_Events_listWidget_itemSelectionChanged();
     void on_Description_textEdit_textChanged();
-
+protected:
+    void closeEvent(QCloseEvent* event);
 private:
     Ui::calendar_window *ui;
 };

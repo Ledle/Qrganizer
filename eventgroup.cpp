@@ -2,6 +2,8 @@
 #include "event.h"
 #include <QFile>
 #include <QDataStream>
+#include "settings.h"
+
 QList<EventGroup*>* EventGroup::groups = new QList<EventGroup*>();
 
 EventGroup::EventGroup():Group()
@@ -35,7 +37,7 @@ void EventGroup::Show(QComboBox* box) {
     }
 }
 void EventGroup::Save(){
-    QFile file("Calendar");
+    QFile file(Settings::Calendar);
     QDataStream stream(&file);
     file.open(QIODevice::WriteOnly);
     int n = groups->size();
@@ -46,7 +48,7 @@ void EventGroup::Save(){
     file.close();
 }
 void EventGroup::Load(){
-    QFile file("Calendar");
+    QFile file(Settings::Calendar);
     QDataStream stream(&file);
     file.open(QIODevice::ReadOnly);
     int n;
