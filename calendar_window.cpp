@@ -29,10 +29,6 @@ void calendar_window::setSelectedEvent(Event* evnt) {
 
 
         ui->Delete_Button->setDisabled(true);
-        ui->Cycle_comboBox->hide();
-        ui->Cycle_Button->setDisabled(true);
-        ui->Remind_Button->setDisabled(true);
-        ui->Remind_dateTimeEdit->hide();
         ui->Date_Button->setDisabled(true);
         ui->Date_dateTimeEdit->hide();
     }
@@ -45,22 +41,6 @@ void calendar_window::setSelectedEvent(Event* evnt) {
         ui->EventName_lineEdit->setDisabled(false);
         if (selectedGroup != NULL) {
             ui->Delete_Button->setDisabled(false);
-        }
-        if (selectedEvent->getCycle() == Cycle::EMPTY) {
-            ui->Cycle_comboBox->hide();
-        }
-        else {
-            ui->Cycle_comboBox->setCurrentIndex(selectedEvent->getCycle());
-            ui->Cycle_comboBox->show();
-        }
-        ui->Cycle_Button->setDisabled(false);
-        ui->Remind_Button->setDisabled(false);
-        if (selectedEvent->getRemind().isNull()) {
-            ui->Remind_dateTimeEdit->hide();
-        }
-        else {
-            ui->Remind_dateTimeEdit->setDateTime(selectedEvent->getRemind());
-            ui->Remind_dateTimeEdit->show();
         }
         ui->Date_Button->setDisabled(false);
         if (selectedEvent->getDate().isNull()) {
@@ -212,48 +192,6 @@ void calendar_window::on_Date_Button_clicked()
 void calendar_window::on_Date_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
 {
     selectedEvent->setDate(dateTime);
-}
-
-
-void calendar_window::on_Remind_Button_clicked()
-{
-    if (ui->Remind_dateTimeEdit->isVisible()) {
-        ui->Remind_dateTimeEdit->hide();
-        selectedEvent->setRemind(QDateTime());
-    }
-    else {
-        ui->Remind_dateTimeEdit->show();
-        QDateTime remind = selectedEvent->getDate();
-        selectedEvent->setRemind(remind);
-        ui->Remind_dateTimeEdit->setDateTime(remind);
-    }
-}
-
-
-void calendar_window::on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
-{
-    selectedEvent->setRemind(dateTime);
-}
-
-
-void calendar_window::on_Cycle_Button_clicked()
-{
-    Cycle c;
-    if (ui->Cycle_comboBox->isVisible()) {
-        ui->Cycle_comboBox->hide();
-        selectedEvent->setCycle(Cycle::EMPTY);
-    }
-    else {
-        ui->Cycle_comboBox->show();
-        c = static_cast<Cycle>(ui->Cycle_comboBox->currentIndex());
-        selectedEvent->setCycle(c);
-    }
-}
-
-
-void calendar_window::on_Cycle_comboBox_currentIndexChanged(int index)
-{
-    selectedEvent->setCycle(static_cast<Cycle>(index));
 }
 
 

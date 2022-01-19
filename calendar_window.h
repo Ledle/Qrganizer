@@ -38,14 +38,6 @@ private slots:
 
     void on_Date_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
-    void on_Remind_Button_clicked();
-
-    void on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
-
-    void on_Cycle_Button_clicked();
-
-    void on_Cycle_comboBox_currentIndexChanged(int index);
-
     void on_Delete_Button_clicked();
 
     void on_Save_Button_clicked();

@@ -7,10 +7,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Tasks_Window w;
+    //Tasks_Window w;
     //notes_window w;
     //calendar_window w;
-    //Settings w;
+    Settings w;
     w.show();
     return a.exec();
 }

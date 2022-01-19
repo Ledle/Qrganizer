@@ -177,47 +177,6 @@
          <item>
           <widget class="QDateEdit" name="Complete_dateEdit"/>
          </item>
-         <item>
-          <widget class="QPushButton" name="Remind_Button">
-           <property name="text">
-            <string>Напоминание</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDateTimeEdit" name="Remind_dateTimeEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="Cycle_Button">
-           <property name="text">
-            <string>Повтор</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="Cycle_comboBox">
-           <item>
-            <property name="text">
-             <string>Каждый день</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Каждую неделю</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Каждый месяц</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Каждый год</string>
-            </property>
-           </item>
-          </widget>
-         </item>
         </layout>
        </item>
        <item>

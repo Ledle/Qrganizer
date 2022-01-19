@@ -112,20 +112,6 @@ void Tasks_Window::task_show(Task* tsk) {
     else {
         ui->Complete_dateEdit->hide();
     }
-    if (!(tsk->getRemind().isNull())) {
-        ui->Remind_dateTimeEdit->setDateTime(tsk->getRemind());
-        ui->Remind_dateTimeEdit->show();
-    }
-    else {
-        ui->Remind_dateTimeEdit->hide();
-    }
-    if (tsk->getCycle() == Cycle::EMPTY) {
-        ui->Cycle_comboBox->hide();
-    }
-    else {
-        ui->Cycle_comboBox->setCurrentIndex(tsk->getCycle());
-        ui->Cycle_comboBox->show();
-    }
 }
 
 void Tasks_Window::on_Groups_comboBox_currentIndexChanged(int index)
@@ -143,21 +129,6 @@ void Tasks_Window::on_Groups_comboBox_currentIndexChanged(int index)
 }
 
 
-void Tasks_Window::on_Cycle_Button_clicked()
-{
-    Cycle c;
-    if (ui->Cycle_comboBox->isVisible()) {
-        ui->Cycle_comboBox->hide();
-        selectedTask->setCycle(Cycle::EMPTY);
-    }
-    else {
-        ui->Cycle_comboBox->show();
-        c = static_cast<Cycle>(ui->Cycle_comboBox->currentIndex());
-        selectedTask->setCycle(c);
-    }
-}
-
-
 void Tasks_Window::on_Complete_Box_stateChanged(int arg1)
 {
     if (arg1 == 0) {
@@ -170,30 +141,9 @@ void Tasks_Window::on_Complete_Box_stateChanged(int arg1)
 }
 
 
-void Tasks_Window::on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
-{
-    selectedTask->setRemind(dateTime);
-}
-
-
 void Tasks_Window::on_Complete_dateEdit_dateChanged(const QDate &date)
 {
     selectedTask->setDate(QDateTime(date,QTime()));
-}
-
-
-void Tasks_Window::on_Remind_Button_clicked()
-{
-    if (ui->Remind_dateTimeEdit->isVisible()) {
-        ui->Remind_dateTimeEdit->hide();
-        selectedTask->setRemind(QDateTime());
-    }
-    else {
-        ui->Remind_dateTimeEdit->show();
-        QDateTime remind = selectedTask->getDate();
-        selectedTask->setRemind(remind);
-        ui->Remind_dateTimeEdit->setDateTime(remind);
-    }
 }
 
 void Tasks_Window::on_CompleteDate_Button_clicked()

@@ -37,15 +37,9 @@ private slots:
 
     void on_CompleteDate_Button_clicked();
 
-    void on_Remind_Button_clicked();
-
     void on_Complete_dateEdit_dateChanged(const QDate &date);
 
-    void on_Remind_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
-
     void on_Complete_Box_stateChanged(int arg1);
-
-    void on_Cycle_Button_clicked();
 
     void on_Groups_comboBox_currentIndexChanged(int index);
 protected:
